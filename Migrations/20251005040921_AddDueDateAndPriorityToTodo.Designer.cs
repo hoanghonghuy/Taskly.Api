@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Taskly.Api.Data;
 
@@ -10,9 +11,11 @@ using Taskly.Api.Data;
 namespace Taskly.Api.Migrations
 {
     [DbContext(typeof(TodoDbContext))]
-    partial class TodoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251005040921_AddDueDateAndPriorityToTodo")]
+    partial class AddDueDateAndPriorityToTodo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
@@ -29,9 +32,6 @@ namespace Taskly.Api.Migrations
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ParentId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("Priority")
                         .HasColumnType("INTEGER");
 
@@ -41,23 +41,7 @@ namespace Taskly.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ParentId");
-
                     b.ToTable("Todos");
-                });
-
-            modelBuilder.Entity("Taskly.Api.Models.Todo", b =>
-                {
-                    b.HasOne("Taskly.Api.Models.Todo", "Parent")
-                        .WithMany("Subtasks")
-                        .HasForeignKey("ParentId");
-
-                    b.Navigation("Parent");
-                });
-
-            modelBuilder.Entity("Taskly.Api.Models.Todo", b =>
-                {
-                    b.Navigation("Subtasks");
                 });
 #pragma warning restore 612, 618
         }

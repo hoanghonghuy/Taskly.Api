@@ -31,10 +31,21 @@ public class TodosController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Todo>> Create(Todo todo)
     {
+        todo.ParentId = null;
         var newTodo = await _todoService.AddAsync(todo);
         return CreatedAtAction(nameof(GetById), new { id = newTodo.Id }, newTodo);
     }
 
+    [HttpPost("{parentId}/subtasks")]
+    public async Task<ActionResult<Todo>> CreateSubtask(int parentId, Todo subtask)
+    {
+        var newSubtask = await _todoService.AddSubtaskAsync(parentId, subtask);
+        if (newSubtask == null)
+        {
+            return NotFound("Parent Todo not found.");  
+        }
+        return CreatedAtAction(nameof(GetById), new {id = newSubtask.Id}, newSubtask);
+    }
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, Todo todo)
     {
