@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taskly.Api", "Taskly.Api.csproj", "{B2C23D79-E7B5-48AA-A453-D3D5B1BF7DAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2C23D79-E7B5-48AA-A453-D3D5B1BF7DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C23D79-E7B5-48AA-A453-D3D5B1BF7DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C23D79-E7B5-48AA-A453-D3D5B1BF7DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C23D79-E7B5-48AA-A453-D3D5B1BF7DAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8707CED6-3D73-4D91-819E-DE4D2A026CEB}
+	EndGlobalSection
+EndGlobal
